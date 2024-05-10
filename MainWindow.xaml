@@ -1,0 +1,52 @@
+﻿<Window x:Class="Kursova.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursova"
+        mc:Ignorable="d"
+        Title="Головне вікно" Height="450" Width="800">
+    <Grid>
+        <!-- Елементи інтерфейсу для відображення таблиці маршрутизації -->
+
+        <ListView Name="RoutingTableListView" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="300">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Призначення" Width="120" DisplayMemberBinding="{Binding Destination}" />
+                    <GridViewColumn Header="Наступний крок" Width="120" DisplayMemberBinding="{Binding NextHop}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- Елементи для додавання маршрутів -->
+
+        <TextBox Name="DestinationTextBox" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="120" Height="30" Text=""/>
+
+        <TextBox Name="NextHopTextBox" HorizontalAlignment="Left" Margin="140,220,0,0" VerticalAlignment="Top" Width="120" Height="30" Text=""/>
+
+        <Button x:Name="AddRouteButton" Content="Додати маршрут" HorizontalAlignment="Left" Margin="280,220,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="AddRouteButton_Click"/>
+
+        <!-- Елементи для редагування маршрутів -->
+
+        <TextBox Name="NewDestinationTextBox" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="120" Height="30" Text=""/>
+
+        <TextBox Name="NewNextHopTextBox" HorizontalAlignment="Left" Margin="140,300,0,0" VerticalAlignment="Top" Width="120" Height="30" Text=""/>
+
+        <Button x:Name="EditRouteButton" Content="Редагувати маршрут" HorizontalAlignment="Left" Margin="280,300,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="EditRouteButton_Click"/>
+
+
+        <!-- Кнопка для запуску маршрутизатора -->
+
+        <Button Content="Запустити маршрутизатор" HorizontalAlignment="Left" Margin="540,40,0,0" VerticalAlignment="Top" Width="200" Height="30" Click="StartButton_Click"/>
+
+        <Button Content="Відправити пакет" HorizontalAlignment="Left" Margin="350,80,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="SendPacketButton_Click"/>
+
+        <!-- Кнопка для видалення маршруту -->
+
+        <Button Content="Видалити маршрут" HorizontalAlignment="Left" Margin="410,220,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="DeleteRouteButton_Click"/>
+        <!-- Додамо кнопку "Закрити програму" -->
+
+        <Button Content="Закрити програму" HorizontalAlignment="Left" Margin="540,170,0,0" VerticalAlignment="Top" Width="200" Height="30" Click="CloseButton_Click"/>
+
+    </Grid>
+</Window>
